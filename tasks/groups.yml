@@ -1,0 +1,9 @@
+---
+- name: Add group / create primary group before adding user to group
+  group:
+    name: "{{ item.name }}"
+    gid: "{{ item.gid | default(omit) }}"
+    state: present
+  when: item.name is defined
+  loop: "{{ GROUPS }}"
+...

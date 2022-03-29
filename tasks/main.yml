@@ -1,2 +1,7 @@
 ---
 # tasks file for ansible-users
+- name: import ansible-groups role
+  import_tasks: tasks/groups.yml
+- name: import ansible-users role
+  import_tasks: tasks/users.yml
+...
