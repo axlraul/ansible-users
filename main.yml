@@ -1,0 +1,9 @@
+---
+# main.yml file for ansible-users role
+- name: ansible-users
+  hosts: all
+  become: yes
+  tasks:
+    - name: import ansible-users role
+      import_tasks: tasks/main.yml
+...
