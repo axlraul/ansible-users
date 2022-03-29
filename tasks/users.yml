@@ -1,0 +1,12 @@
+---
+- name: Add group / create primary group before adding user to group
+  user:
+    name: "{{ item.name }}"
+    shell: "{{ item.shell }}"
+    group: "{{ item.group | default(omit) }}"
+    home: "{{ item.home }}"
+    uid: "{{ item.uid }}"
+    state: present
+  when: item.name is defined
+  loop: "{{ USERS }}"
+...

@@ -1,0 +1,14 @@
+---
+# main.yml file for ansible-users role
+- name: ansible-users
+  hosts: all
+  become: yes
+  tasks:
+    - name: import ansible-users role
+      import_tasks: tasks/main.yml
+      vars: 
+        GROUPS:
+        - {name: 'prueba', gid: '11111'}
+        USERS:
+        - {name: 'uprueba', uid: '22222', group: 'prueba', home: '/home/PrUeBa', shell: '/bin/bash'}
+...
